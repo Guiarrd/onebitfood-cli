@@ -1,0 +1,20 @@
+@charset 'utf-8';
+
+@import "~bulma/sass/utilities/functions";
+
+@import "./styles/custom_colors";
+
+$custom-colors: (
+  "custom-green-darker": ($custom-green-darker),
+  "custom-green-lighter": ($custom-green-lighter),
+  "custom-gray": ($custom-gray),
+  "custom-gray-darker": ($custom-gray-darker),
+  "custom-black": ($custom-black),
+  "custom-orange": ($custom-orange),
+);
+
+// Importar os estilos do Bulma
+@import "~bulma/bulma";
+
+// Importar correções do estilo do rbx
+@import "~rbx/rbx";
