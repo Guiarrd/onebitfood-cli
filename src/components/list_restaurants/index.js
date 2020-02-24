@@ -1,36 +1,12 @@
 import React, { Component } from 'react';
 import { Column } from 'rbx';
+import store from '../../store';
 
 import Restaurant from './restaurant';
 
 class ListRestaurants extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      restaurants: [
-        {
-          'name': 'Example 1',
-          'delivery_tax': '5',
-          'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
-          'category_title': 'Cozinha japonesa',
-          'review': '4.8'
-        },
-        {
-          'name': 'Example 2',
-          'delivery_tax': '10',
-          'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
-          'category_title': 'Cozinha mineira',
-          'review': '4.9'
-        },
-        {
-          'name': 'Example 3',
-          'delivery_tax': '15',
-          'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
-          'category_title': 'Cozinha vegana',
-          'review': '4.2'
-        },
-      ]
-    }
+  componentWillMount() {
+    this.restaurants = store.getState()['restaurantsState'];
   }
 
   render() {
@@ -39,7 +15,7 @@ class ListRestaurants extends Component {
         <h2 className="title is-size-4">Restaurantes</h2>
 
         <Column.Group multiline gapSize={2}>
-          {this.state.restaurants.map(restaurant => {
+          {this.restaurants.map(restaurant => {
             return <Restaurant {...restaurant} />
           })}
         </Column.Group>
