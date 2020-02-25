@@ -9,7 +9,7 @@ const Header = () => (
     <Navbar>
         <Container>
             <Navbar.Brand>
-                <img src={LogoImage} />
+                <img src={LogoImage} alt='logo' />
             </Navbar.Brand>
         </Container>
     </Navbar>
