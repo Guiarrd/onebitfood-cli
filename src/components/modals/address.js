@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { hideModal } from '../../actions/modal';
 import { FaTimes } from 'react-icons/fa';
 
+import AddressForm from '../../components/address_form';
+
 class AddressModal extends Component {
   render() {
     return (
@@ -18,11 +20,7 @@ class AddressModal extends Component {
                 </Icon>
               </Column>
             </Column.Group>
-            <Column.Group>
-              <Column size={12}>
-                Meu Modal
-              </Column>
-            </Column.Group>
+            <AddressForm />
           </Box>
         </Column>
       </Column.Group>
