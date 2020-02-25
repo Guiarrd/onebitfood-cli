@@ -7,5 +7,5 @@ export default {
     let filter = category ? `?category=${category.title}` : ''
     return url.get(`/restaurants${filter}`)
   },
-  loadCategories: () => url.get('/restaurants')
+  loadCategories: () => url.get('/categories')
 }
