@@ -9,4 +9,5 @@ export default {
   },
   loadCategories: () => url.get('/categories'),
   searchRestaurants: (search) => url.get(`/restaurants/search?q=${search}`),
+  getRestaurant: (id) => url.get(`/restaurants/${id}`),
 }
