@@ -3,6 +3,7 @@ import "./App.scss";
 import { Container, Section } from 'rbx';
 import Header from './components/header';
 import Routes from './routes';
+import ModalRoot from './components/modals';
 
 const App = () => (
   <Fragment>
@@ -12,6 +13,7 @@ const App = () => (
         <Routes />
       </Container>
     </Section>
+    <ModalRoot />
   </Fragment>
 )
 
