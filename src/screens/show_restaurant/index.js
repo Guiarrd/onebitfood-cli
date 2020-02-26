@@ -43,7 +43,7 @@ class ShowRestaurant extends Component {
 
         {this.state.restaurant.product_categories &&
           this.state.restaurant.product_categories.map((category, i) => {
-            return <CategoryProducts {...category} key={i} />
+            return <CategoryProducts restaurant={this.state.restaurant} {...category} key={i} />
           }) 
         }
       </Fragment>

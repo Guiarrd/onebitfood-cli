@@ -27,8 +27,8 @@ class AddressForm extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = event.value;
-    const name = event.name;
+    const value = target.value;
+    const name = target.name;
 
     this.setState({
       [name]: value

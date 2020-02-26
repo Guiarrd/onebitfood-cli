@@ -13,7 +13,7 @@ class ListRestaurants extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.address != prevProps.address) {
+    if (this.props.address !== prevProps.address) {
       this.props.loadRestaurants(this.props.address);
     }
   }
