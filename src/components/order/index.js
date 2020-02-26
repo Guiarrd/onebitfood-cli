@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { removeOrderItem } from "../../actions/new_order";
 import { hideModal } from "../../actions/modal";
+
+import history from '../../history';
 import "../../styles/order.scss";
 
 class Order extends Component {
@@ -26,6 +28,7 @@ class Order extends Component {
 
   closeOrder = () => {
     this.props.hideModal('ORDER_MODAL');
+    history.push('/orders/new');
   }
 
   render() {

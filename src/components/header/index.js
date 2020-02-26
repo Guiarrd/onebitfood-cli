@@ -9,13 +9,14 @@ import SearchBox from '../search_box_component';
 import { showModal } from '../../actions/modal';
 import { FaCrosshairs, FaShoppingBasket } from 'react-icons/fa';
 
+import history from '../../history';
 import '../../styles/header.scss';
 
 const Header = (props) => (
     <div className="top-navbar">
         <Container>
             <Navbar>
-                <Navbar.Brand>
+                <Navbar.Brand onClick={e => history.push('/')}>
                     <img src={LogoImage} alt='logo' />
                 </Navbar.Brand>
 
