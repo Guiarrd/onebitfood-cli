@@ -33,5 +33,6 @@ export default {
     order['address'] = full_address
 
     return url.post(`orders`, order);
-  }
+  },
+  loadOrder: (id) => url.get(`orders/${id}`),
 }
