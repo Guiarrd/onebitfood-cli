@@ -1,7 +1,32 @@
 import React, { Component } from 'react';
 import { Box, Column, Title, Input, Field, Button, Control, Label } from "rbx";
+import { connect } from 'react-redux';
+import api from "../../services/api";
+import history from '../../history';
 
 class OrderForm extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name:  '',
+      cpf:   '',
+      phone_number: '',
+      restaurant_id: this.props.restaurant.id
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
 
   render() {
 
@@ -23,6 +48,9 @@ class OrderForm extends Component {
                         type="text" 
                         placeholder="Leonardo Scorza..."
                         name="name"
+                        value={this.state.name}
+                        onChange={this.handleInputChange}
+                        required
                         />
                     </Control>
                   </Field>
@@ -34,6 +62,9 @@ class OrderForm extends Component {
                         type="text" 
                         placeholder='396.134.567-34'
                         name="cpf"
+                        value={this.state.cpf}
+                        onChange={this.handleInputChange}
+                        required
                         />
                     </Control>
                   </Field>
@@ -42,7 +73,11 @@ class OrderForm extends Component {
                     <Control>
                       <Input 
                         type="text" 
+                        placeholder='(19) 997095432'
                         name="phone_number"
+                        value={this.state.phone_number}
+                        onChange={this.handleInputChange}
+                        required
                       />
                     </Control>
                   </Field>
@@ -52,12 +87,12 @@ class OrderForm extends Component {
                     <Title size={6} className="has-text-custom-gray-darker">
                       Endereço de entrega
                     </Title>
-                    <span>
-                      Rua joão Perone, 130
-                    </span>
-                    <span>
-                      Riberião Preto, São Paulo
-                    </span>
+                    <p>
+                      {this.props.address.street}, {this.props.address.number}
+                    </p>
+                    <p>
+                    {this.props.address.city}, {this.props.address.state}
+                    </p>
                   </Field>
 
                   <br/>
@@ -78,4 +113,9 @@ class OrderForm extends Component {
   } 
 }
 
-export default OrderForm;
+const mapStateToProps = store => ({
+  address: store.addressState.address,
+  restaurant: store.newOrderState.restaurant,
+});
+
+export default connect(mapStateToProps)(OrderForm);
