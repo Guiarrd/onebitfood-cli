@@ -17,7 +17,7 @@ class Categories extends Component {
   }
 
   filterByCategory = (category) => {
-    this.props.loadRestaurants(category)
+    this.props.loadRestaurants(this.props.address, category)
   }
 
   componentWillMount() {
@@ -48,6 +48,10 @@ class Categories extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  address: store.addressState.address
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({ loadRestaurants }, dispatch);
 
